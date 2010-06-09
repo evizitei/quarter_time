@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/quarter_time/quarter.rb",
      "lib/quarter_time/quarter_driven.rb",
      "lib/quarter_time/quarter_knowledge.rb",
+     "quarter_time.gemspec",
      "test/helper.rb",
      "test/test_date_extensions.rb",
      "test/test_quarter.rb",

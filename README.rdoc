@@ -1,7 +1,69 @@
 = quarter_time
 
-Description goes here.
+A simple gem for dealing with quarter logic.  I happen to have a project where half the models in the database recur every three months as part of a "quarter" of the year.  Within the code, we constantly are asking "what quarter is this for?", or "show me all the records for this quarter".  Well, now I need the same power on another application, so say hello to "quarter_time".
 
+(etymology: it's colloquial in some musical circles to use the phrase "quarter time" to represent the 4/4 time signature, or "three-quarter time" to mean 3/4.  Also, it's a short name for a gem that no one has used yet, I have to admit that did factor into the equation)
+
+== Usage
+
+1) Install! (or require with whatever dependancy manager you use)
+
+    sudo gem install quarter_time
+    
+2) Require!
+   
+   require 'quarter_time'
+   
+3) Use!
+
+  * find out what quarter a day belongs to:
+  
+    Date.parse("3/15/2010").quarter 
+    # => 1
+    Date.parse("12/12/2010").quarter
+    # => 4
+
+  * Use an object to represent quarters
+  
+    >> quarter = Quarter.new(2010,3)
+    => #<Quarter: @quarter=3, @year=2010>
+  
+  *calculate the next or previous quarter in the logical sequence
+  
+    >> quarter.next
+    => #<Quarter: @quarter=4, @year=2010>
+    >> quarter.next.next
+    => #<Quarter: @quarter=1, @year=2011>
+    >> quarter.previous
+    => #<Quarter: @quarter=2, @year=2010>
+    
+  *get the boundary dates of any given quarter
+  
+    >> quarter.start_date.to_s
+    => "2010-07-01"
+    >> quarter.end_date.to_s
+    => "2010-09-30"
+    
+  *get a string representation of the quarter, good for interpolating into emails and such
+  
+    >> quarter.quarter_stamp
+    => "Q3, 2010"
+    
+  *include a scope for easy finding, plus several quarter methods into your ActiveRecord models that have year and quarter fields!
+  
+    class SomeModel < ActiveRecord::Base
+      include QuarterTime::QuarterDriven
+    end
+    
+    q = Quarter.new(2010,2)
+    model = SomeModel.for_quarter(q).first
+    model.quarter_obj
+      =>  #<Quarter: @quarter=2, @year=2010>
+    model.start_date.to_s
+      => "2010-03-01"
+    model.quarter_stamp
+      => "Q2, 2010"
+      
 == Note on Patches/Pull Requests
  
 * Fork the project.
