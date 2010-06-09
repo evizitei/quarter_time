@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "quarter_time"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{ library for measuring time in quarters (three month periods) and interacting with models that are tied to a specific quarter.}
+    gem.description = %Q{A simple gem for dealing with quarter logic.  I happen to have a project where half the models in the database recur every three months as part of a "quarter" of the year.  Within the code, we constantly are asking "what quarter is this for?", or "show me all the records for this quarter".  Well, now I need the same power on another application, so say hello to "quarter_time".}
     gem.email = "ethan.vizitei@gmail.com"
     gem.homepage = "http://github.com/evizitei/quarter_time"
     gem.authors = ["evizitei"]

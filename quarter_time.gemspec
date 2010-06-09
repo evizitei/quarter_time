@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{quarter_time}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["evizitei"]
@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{ library for measuring time in quarters (three month periods) and interacting with models that are tied to a specific quarter.}
+  s.summary = %q{library for measuring time in quarters (three month periods) and interacting with models that are tied to a specific quarter.}
   s.test_files = [
     "test/helper.rb",
      "test/test_date_extensions.rb",
