@@ -32,7 +32,15 @@ class TestQuarter < Test::Unit::TestCase
     
     should "calculate end date for fourth quarter" do
       assert_equal Date.parse("12/31/2009"),Quarter.new(2009,4).end_date
-    end   
+    end 
+    
+    should "be equal to other quarter made from same year and quarter" do
+      assert Quarter.new(2010,3).eql?(Quarter.new(2010,3))
+    end  
+    
+    should "be equal to other quarter made from same year and quarter with double equals as well" do
+      assert Quarter.new(2010,3) == Quarter.new(2010,3)
+    end
   end     
   
   context "Prebuilt Quarter" do

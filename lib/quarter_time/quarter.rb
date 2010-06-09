@@ -39,6 +39,12 @@ class Quarter
     "Q#{self.quarter}, #{self.year}"
   end
   
+  def eql?(other_quarter)
+    other_quarter.class.eql?(self.class) and other_quarter.year == year and other_quarter.quarter == self.quarter
+  end
+  
+  alias_method :==,:eql?
+  
 protected
   def build_next
     if @quarter < 4
