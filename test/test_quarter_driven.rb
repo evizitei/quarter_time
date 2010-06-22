@@ -22,9 +22,18 @@ class TestQuarterDriven < Test::Unit::TestCase
       assert_equal "Q2, 2010",@model.quarter_stamp
     end
     
-    should "create a named scope to find by a quarter object" do
-      expected_map = {:conditions=>{:year=>2010,:quarter=>4}}
-      assert_equal expected_map,QuarterDrivenModel.scopes[:for_quarter].call(Quarter.new(2010,4))
+    context "creates a named scope which" do
+      setup do
+        @expected_map = {:conditions=>{:year=>2010,:quarter=>4}}
+      end
+      
+      should "find by a quarter object" do
+        assert_equal @expected_map,QuarterDrivenModel.scopes[:for_quarter].call(Quarter.new(2010,4))
+      end
+    
+      should "find by year and quarter" do
+        assert_equal @expected_map,QuarterDrivenModel.scopes[:for_quarter].call(2010,4)
+      end
     end
   end
 
