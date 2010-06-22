@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{quarter_time}
-  s.version = "0.2.3"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["evizitei"]
-  s.date = %q{2010-06-09}
+  s.date = %q{2010-06-22}
   s.description = %q{A simple gem for dealing with quarter logic.  I happen to have a project where half the models in the database recur every three months as part of a "quarter" of the year.  Within the code, we constantly are asking "what quarter is this for?", or "show me all the records for this quarter".  Well, now I need the same power on another application, so say hello to "quarter_time".}
   s.email = %q{ethan.vizitei@gmail.com}
   s.extra_rdoc_files = [
