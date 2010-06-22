@@ -63,6 +63,15 @@ A simple gem for dealing with quarter logic.  I happen to have a project where h
       => "2010-03-01"
     model.quarter_stamp
       => "Q2, 2010"
+  
+  *you can also just use the scope with year and quarter parameters if you don't already have a quarter object
+  
+    class SomeModel < ActiveRecord::Base
+      include QuarterTime::QuarterDriven
+    end
+    
+    model = SomeModel.for_quarter(2010,3).first
+  
       
 == Note on Patches/Pull Requests
  
