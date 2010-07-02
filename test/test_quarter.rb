@@ -2,6 +2,10 @@ require 'helper'
 
 class TestQuarter < Test::Unit::TestCase
   context "Quarter" do
+    should "be capable of creation from strings" do
+      assert_equal Date.parse("01/01/2009"),Quarter.new("2009","1").start_date
+    end
+    
     should "calculate start date for first quarter" do
       assert_equal Date.parse("01/01/2009"),Quarter.new(2009,1).start_date
     end

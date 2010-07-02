@@ -3,8 +3,8 @@ class Quarter
   attr_accessor :quarter
   
   def initialize(year,quarter)
-    @year = year
-    @quarter = quarter
+    @year = year.to_i
+    @quarter = quarter.to_i
   end
   
   def next
