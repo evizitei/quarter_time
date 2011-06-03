@@ -45,8 +45,13 @@ class QuarterDrivenModel
   def self.scopes
     @@scopes
   end
-  
+  ActiveSupport::VERSION
   def self.named_scope(name,func = nil)
+    @@scopes ||= {}
+    @@scopes[name] = func
+  end
+
+  def self.scope(name,func = nil)
     @@scopes ||= {}
     @@scopes[name] = func
   end
