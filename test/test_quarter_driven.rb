@@ -15,7 +15,7 @@ class TestQuarterDriven < Test::Unit::TestCase
     end
     
     should "delegate end date to quarter object" do
-      assert_equal Date.civil(2010,6,3),@model.end_date
+      assert_equal Date.civil(2010,6,-1),@model.end_date
     end
     
     should "delegate quarter stamp to quarter object" do
