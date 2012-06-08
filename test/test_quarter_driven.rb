@@ -11,11 +11,11 @@ class TestQuarterDriven < Test::Unit::TestCase
     end
     
     should "delegate start date to quarter object" do
-      assert_equal Date.parse("4/1/2010"),@model.start_date
+      assert_equal Date.civil(2010,4,1),@model.start_date
     end
     
     should "delegate end date to quarter object" do
-      assert_equal Date.parse("6/30/2010"),@model.end_date
+      assert_equal Date.civil(2010,6,3),@model.end_date
     end
     
     should "delegate quarter stamp to quarter object" do
