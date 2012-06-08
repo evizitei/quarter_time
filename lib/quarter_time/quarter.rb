@@ -16,11 +16,13 @@ class Quarter
   end
   
   def start_date
-    Date.parse("#{(@quarter * 3) - 2}/01/#{@year}")
+    return @_start_date if @_start_date
+    @_start_date = Date.civil(year,(quarter * 3) - 2)
   end
 
   def end_date
-    start_date + 3.months - 1.day
+    return @_end_date if @_end_date
+    @_end_date = Date.civil(year,(quarter*3),-1)
   end
   
   def yq_hash   
