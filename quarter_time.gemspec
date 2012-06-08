@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "quarter_time"
-  s.version = "1.0.1"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["evizitei"]
-  s.date = "2012-02-21"
+  s.date = "2012-06-08"
   s.description = "A simple gem for dealing with quarter logic.  I happen to have a project where half the models in the database recur every three months as part of a \"quarter\" of the year.  Within the code, we constantly are asking \"what quarter is this for?\", or \"show me all the records for this quarter\".  Well, now I need the same power on another application, so say hello to \"quarter_time\"."
   s.email = "ethan.vizitei@gmail.com"
   s.extra_rdoc_files = [
@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    "Gemfile",
+    "Gemfile.lock",
     "LICENSE",
     "README.rdoc",
     "Rakefile",
@@ -37,18 +39,30 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/evizitei/quarter_time"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.23"
   s.summary = "library for measuring time in quarters (three month periods) and interacting with models that are tied to a specific quarter."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activesupport>, [">= 2.3.5"])
+      s.add_runtime_dependency(%q<i18n>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     else
+      s.add_dependency(%q<activesupport>, [">= 2.3.5"])
+      s.add_dependency(%q<i18n>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
     end
   else
+    s.add_dependency(%q<activesupport>, [">= 2.3.5"])
+    s.add_dependency(%q<i18n>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<thoughtbot-shoulda>, [">= 0"])
   end
 end
