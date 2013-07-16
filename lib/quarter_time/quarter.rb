@@ -6,7 +6,12 @@ class Quarter
     @year = year.to_i
     @quarter = quarter.to_i
   end
-  
+
+  def self.current
+    today = Date.today
+    Quarter.new(today.year, today.quarter)
+  end
+
   def next
     @next ||= build_next
   end
