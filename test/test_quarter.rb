@@ -2,6 +2,15 @@ require 'helper'
 
 class TestQuarter < Test::Unit::TestCase
   context "Quarter" do
+    context '.current' do
+      should "return a new quarter object for the current year/quarter" do
+        today = Date.today
+        quarter = Quarter.current
+        assert_equal today.year, quarter.year
+        assert_equal today.quarter, quarter.quarter
+      end
+    end
+
     should "be capable of creation from strings" do
       assert_equal Date.civil(2009,1,1),Quarter.new("2009","1").start_date
     end
