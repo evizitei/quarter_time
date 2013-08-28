@@ -16,6 +16,10 @@ class Quarter
     current.next
   end
 
+  def self.previous
+    current.previous
+  end
+
   def next
     @next ||= build_next
   end
