@@ -11,6 +11,30 @@ class TestQuarter < Test::Unit::TestCase
       end
     end
 
+    context '.next' do
+      should 'build a new quarter object for the next quarter when near the begining of the year' do
+        begin
+          Timecop.travel(Date.civil(2013))
+          quarter = Quarter.next
+          assert_equal 2013, quarter.year
+          assert_equal 2, quarter.quarter
+        ensure
+          Timecop.return
+        end
+      end
+
+      should "build a new quarter object for the next quarter when near the end of the year" do
+        begin
+          Timecop.travel(Date.civil(2013, 12))
+          quarter = Quarter.next
+          assert_equal 2014, quarter.year
+          assert_equal 1, quarter.quarter
+        ensure
+          Timecop.return
+        end
+      end
+    end
+
     should "be capable of creation from strings" do
       assert_equal Date.civil(2009,1,1),Quarter.new("2009","1").start_date
     end

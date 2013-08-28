@@ -12,6 +12,10 @@ class Quarter
     Quarter.new(today.year, today.quarter)
   end
 
+  def self.next
+    current.next
+  end
+
   def next
     @next ||= build_next
   end
